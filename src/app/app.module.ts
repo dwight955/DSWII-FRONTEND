@@ -7,17 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CrudDocenteComponent } from './components/crud-docente/crud-docente.component';
+import { CrudEmpresaComponent } from './components/crud-empresa/crud-empresa.component';
 import { AppMaterialModule } from './app.material.module';
-import { CrudDocenteAddComponent } from './components/crud-docente-add/crud-docente-add.component';
-import { CrudDocenteUpdateComponent } from './components/crud-docente-update/crud-docente-update.component';
+import { CrudEmpresaAddComponent } from './components/crud-empresa-add/crud-empresa-add.component';
+import { CrudEmpresaUpdateComponent } from './components/crud-empresa-update/crud-empresa-update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CrudDocenteComponent,
-    CrudDocenteAddComponent,
-    CrudDocenteUpdateComponent
+    CrudEmpresaComponent,
+    CrudEmpresaAddComponent,
+    CrudEmpresaUpdateComponent
   ],
   imports: [
     BrowserModule,

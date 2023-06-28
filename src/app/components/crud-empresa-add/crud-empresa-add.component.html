@@ -1,0 +1,94 @@
+
+<div class="container">
+    <form  class="mat-dialog-content"  id="idFormModalidad" [formGroup]="formsRegistra" >
+      <div class="row">
+            <mat-toolbar color="primary" >    
+              <span>Registra Empresa</span>    
+            </mat-toolbar>  
+      </div>
+      
+      <div  class="row"  style="margin-top: 3%">
+                <mat-form-field class="col-md-3">
+                    <mat-label>Contacto</mat-label>
+                    <input  matInput [(ngModel)] ="empresa.contacto" name="nombre" formControlName="validaContacto">
+                    <mat-hint style="color:red" *ngIf="formsRegistra.controls.validaContacto.touched">
+                        <span *ngIf="formsRegistra.controls.validaContacto.hasError('required')">
+                        El Contacto es requerido
+                        </span>
+                        <span *ngIf="formsRegistra.controls.validaContacto.hasError('pattern')">
+                        El Contacto es 3 a 30 caracteres
+                        </span>
+                    </mat-hint>
+                </mat-form-field>
+                <mat-form-field class="col-md-3">
+                    <mat-label>Email</mat-label>
+                    <input  matInput [(ngModel)] ="empresa.email" name="email" formControlName="validaEmail" >
+                    <mat-hint style="color:red" *ngIf="formsRegistra.controls.validaEmail.touched">
+                        <span *ngIf="formsRegistra.controls.validaEmail.hasError('required')">
+                        El Email es requerido
+                        </span>
+                        <span *ngIf="formsRegistra.controls.validaEmail.hasError('pattern')">
+                        Email incorrecto
+                        </span>
+                    </mat-hint>
+                </mat-form-field>
+                <mat-form-field class="col-md-3">
+                    <mat-label>Razon Social</mat-label>
+                    <input  matInput [(ngModel)] ="empresa.razonSocial" formControlName="validaRazonSocial" name="razonSocial" >
+                    <mat-hint style="color:red" *ngIf="formsRegistra.controls.validaRazonSocial.touched">
+                        <span *ngIf="formsRegistra.controls.validaRazonSocial.hasError('required')">
+                        La Razon Social es requerida
+                        </span>
+                        <span *ngIf="formsRegistra.controls.validaRazonSocial.hasError('pattern')">
+                        Razon Social es 3 a 30 caracteres
+                        </span>
+                    </mat-hint>
+                </mat-form-field>
+                <mat-form-field class="col-md-3">
+                    <mat-label>Ruc</mat-label>
+                    <input  matInput [(ngModel)] ="empresa.ruc" formControlName="validaRuc" name="ruc" >
+                    <mat-hint style="color:red" *ngIf="formsRegistra.controls.validaRuc.touched">
+                        <span *ngIf="formsRegistra.controls.validaRuc.hasError('required')">
+                            El RUC es requerido
+                        </span>
+                        <span *ngIf="formsRegistra.controls.validaRuc.hasError('pattern')">
+                            El RUC debe tener 11 digitos
+                        </span>
+                    </mat-hint>
+                </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field class="col-md-4">
+                <mat-label>Tipo de Riesgo</mat-label>
+                <mat-select [(ngModel)] ="empresa.idTipoRiesgo" formControlName="validaTipoRiesgo" name="departamento">
+                    <mat-option value="-1" selected > [Seleccione] </mat-option>
+                    <mat-option *ngFor="let x of tiposRiesgo" [value]="x.idTipoRiesgo" >
+                       {{x.calificacion}} 
+                    </mat-option> 
+                </mat-select>
+                <mat-hint style="color:red" *ngIf="formsRegistra.controls.validaTipoRiesgo.touched" >
+                    <span *ngIf="formsRegistra.controls.validaTipoRiesgo.hasError('min')">
+                        El Tipo de Riesgo es requerido
+                    </span>
+                </mat-hint>
+            </mat-form-field> 
+        </div>
+
+        <div  mat-dialog-actions>
+                <button mat-raised-button 
+                        type="submit" 
+                        color="primary" 
+                        (click)="registra()"  
+                        [disabled]="formsRegistra.invalid"
+                        [mat-dialog-close]="1">
+                        Registra
+                </button>
+                <button mat-button 
+                        (click)="onNoClick()"
+                        color="primary">
+                        Salir
+                </button>
+        </div>
+      </form>
+  </div>
+  
